@@ -65,6 +65,12 @@ From npm — no build step, no `allowBuilds` authorization; git installs are equ
 Add `.dsh-attest-chain/` to your repository's `.gitignore` — the private key must
 never be committed; the public key is what a verifier checks.
 
+## Compatibility
+
+- **DSH**: verified against the 0.2.x line (source snapshot 0.2.1-alpha.2); installs on any profile via `dsh plugin add` (prebuilt `lib/`, no build approval).
+- **Node**: >= 20 (CI matrix: Node 20/22/24 on Ubuntu and Windows).
+- **Disposable-profile evidence (2026-10-19)**: `dsh plugin --profile <fresh> add github:zhengqiuyang/dsh-attest-chain` → installed in 30s; boot shows `[dsh-attest-chain] active: …`; `dsh plugin --profile <fresh> remove dsh-attest-chain` → dependencies cleared, bundles restored.
+
 ## Develop
 
 ```sh
