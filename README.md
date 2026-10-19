@@ -42,6 +42,28 @@ A keypair is generated on first run; the private half never leaves the
 machine running the agent. `sign: false` runs a digest-only chain if you only
 need tamper-evidence against a published head.
 
+## Compared with qiushi-dsh-evidence-audit
+
+The closest sibling in the awesome security category is
+[qiushi-dsh-evidence-audit](https://github.com/030611/qiushi-dsh-evidence-audit) —
+same idea (hash-chained local receipts over `tools/result`), deliberately
+different trust posture. Pick by what you need to prove:
+
+| | dsh-attest-chain | qiushi-dsh-evidence-audit |
+|---|---|---|
+| Chain | SHA-256 links **+ ed25519 signature on every record** | SHA-256 links only (explicitly not signatures) |
+| What a record binds | `sha256` of the model-visible content, tool, callId, error flag | hashes of IDs and outcomes; **no digest of the content the model saw** |
+| Git binding | extracts **commit SHAs from shell outputs** — the chain ties work to repo history | none |
+| Tamper localization | `verifyChain()` returns the **first bad `{seq, reason}`** (broken link vs digest mismatch vs bad signature) | file-level verdict |
+| Consumption | `verifyChain` is an exported API — [dsh-trust-panel](https://github.com/zhengqiuyang/dsh-trust-panel) runs it live and shows the result in the sidebar | standalone |
+| Privacy stance | content digests only, never plaintext; keys stay local | hashes-only by design, POSIX 0600 receipts, no key material at all |
+
+In short: if you want **attribution and repo-history binding** (who signed,
+against which commits), attest-chain; if you want the **minimum footprint**
+with zero key material, qiushi. Both are observe-only and honest about limits —
+neither can prove a command ran correctly, or detect a suffix deleted before
+the ledger was first published.
+
 ## Install
 
 ```sh
