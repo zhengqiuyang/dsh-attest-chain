@@ -1,6 +1,7 @@
 # dsh-attest-chain
 
 > **If this helps you, please give it a star** — it helps others find it. Thanks!
+
 Signed chain-of-custody for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) sessions.
 
 Headless agents bypass PR gates entirely; chat UIs show what the agent *said*
