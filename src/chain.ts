@@ -20,6 +20,8 @@ export interface CustodyRecord {
   contentSha256: string;
   /** Commit identity bound into the chain when the call created commits. */
   commitSha?: string;
+  /** Content-digest algorithm version (v1 concat, v2 canonical per-block). Absent = v1. */
+  digestVersion?: number;
 }
 
 export interface ChainLine {
