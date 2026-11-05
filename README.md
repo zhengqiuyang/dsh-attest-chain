@@ -117,3 +117,10 @@ sibling `agent-attest` checkout (`npm run sync`; CI runs `sync --check`).
 If dsh ships first-party signed session records, or a major plugin-adds
 attestation natively, this freezes at its last working version with a
 postmortem here. The signing core stays owned by agent-attest either way.
+
+## Known limitations
+
+- **Single-process append.** The chain continues correctly within one plugin activation; a second activation appending to the same ledger starts from GENESIS and will read as a broken link. Use one ledger per activation, or wait for tail-continuation support.
+- **`commitSha` is parsed from tool output text**, not independently verified against the repository.
+- **The signing key lives in `keysDir`** — an attacker with the same file permissions can re-sign a forged chain. The chain proves order and integrity against the key, not authorship by a specific human.
+- Records carry tool name, callId, error flag, and the content digest — not tool arguments or full file states.
