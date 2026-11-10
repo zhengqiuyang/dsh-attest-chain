@@ -29,3 +29,6 @@ jobs:
       - run: npm test
         env:
           AA_SRC: sibling/agent-attest/src
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run coverage
