@@ -49,6 +49,9 @@
   "engines": {
     "node": ">=20"
   },
+  "homepage": "https://github.com/zhengqiuyang/dsh-attest-chain#readme",
+  "bugs": { "url": "https://github.com/zhengqiuyang/dsh-attest-chain/issues" },
+  "author": "zhengqiuyang",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhengqiuyang/dsh-attest-chain.git"

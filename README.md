@@ -1,5 +1,11 @@
 # dsh-attest-chain
 
+[![CI](https://github.com/zhengqiuyang/dsh-attest-chain/actions/workflows/ci.yml/badge.svg)](https://github.com/zhengqiuyang/dsh-attest-chain/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/dsh-attest-chain)](https://www.npmjs.com/package/dsh-attest-chain)
+[![license](https://img.shields.io/npm/l/dsh-attest-chain)](https://github.com/zhengqiuyang/dsh-attest-chain/blob/main/LICENSE)
+
+> Part of the [DSH trust layer](https://github.com/zhengqiuyang/dsh-trust-panel/blob/main/SUITE.md) — ten deterministic checks, no LLM in the trust path.
+
 > **If this helps you, please give it a star** — it helps others find it. Thanks!
 
 Signed chain-of-custody for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) sessions.
